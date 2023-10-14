@@ -30,14 +30,49 @@
 </head>
 
 <style>
+    /* Estilo da estante */
     .bookshelf {
         display: grid;
-        grid-template-columns: repeat(3, 1fr); /* Define 3 colunas de largura igual */
-        gap: 20px; /* Define o espaçamento entre as colunas */
+        grid-template-columns: repeat(3, 1fr);
+        gap: 20px;
+        background-color: #f7f7f7;
+        padding: 20px;
+        border: 2px solid #e0e0e0;
+        border-radius: 5px;
+        background-image: linear-gradient(180deg, #fff, #f7f7f7, #fff);
     }
 
-    /* Estilos adicionais da estante de livros, se necessário */
+    /* Estilo dos cards */
+    .book-card {
+        width: 100%;
+        background-color: #fff;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        padding: 15px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .book-card h5 {
+        font-size: 1rem;
+        margin: 0;
+    }
+
+    .book-card p {
+        font-size: 0.75rem;
+        margin: 0;
+    }
+
+    .book-card img {
+        width: 50px; /* Largura da imagem do livro */
+        height: 150px; /* Altura da imagem do livro */
+        object-fit: cover;
+    }
 </style>
+
 <body id="page-top">
 
 
@@ -146,7 +181,7 @@
           <!-- Tabelas dos pacientes -->
           <div class="card shadow mb-4">
             <div class="card-header py-3">
-              <h6 class="m-0 font-weight-bold text-primary">Sua estante</h6>
+              <h6 class="m-0 font-weight-bold text-primary">Estante</h6>
             </div>
             
         
@@ -163,51 +198,82 @@
           </div>
         </form> -->
         
-                <div class="bookshelf">
-        <div class="container-fluid">
-    <div class="row">
-        <div class="col-md-12">
-        <div class="table-responsive">
-                    <table id="listaPacientes" class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                        <thead>
-                            <tr>
-                                <th>Nome</th>
-                                <th>Autor</th>
-                                <th>Terminei em</th>
-                                <th>Nota</th>
-                                <th>Ações</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                        
-                                <tr>
-                                    <td>Quem é você, Alasca?</td>
-                                    <td>John Green</td>
-                                    <td>Agosto</td>
-                                    <td>10</td>
-                                    <td>
-                                        <a href="<c:url value='situacao'>
-                                            <c:param name='id' value='${dado.id}'/>
-                                        </c:url>">
-                                            <button class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm">
-                                                <i class="fas fa-eye"></i>
-                                            </button>
-                                        </a>
-                                        <a href="<c:url value='pacientes/deletarpaciente'>
-                                            <c:param name='id' value='${dado.id}'/>
-                                        </c:url>">
-                                            <button class="d-none d-sm-inline-block btn btn-sm btn-danger shadow-sm">
-                                                <i class="fas fa-trash"></i>
-                                            </button>
-                                        </a>
-                                    </td>
-                                    <!-- Outras colunas, se aplicável -->
-                                </tr>
-                        </tbody>
-                    </table>
-                </div>
-      
-                            <c:forEach items="${livros}" var="dado">
+                
+        
+        <div class="bookshelf">
+    <!-- Primeiro card -->
+    <div class="book-card">
+        <div class="card">
+            <img src="caminho_da_imagem1.jpg" class="card-img-top" alt="Capa do Livro 1">
+            <div class="card-body">
+                <h5 class="card-title">Nome do Livro 1</h5>
+                <p class="card-text">Autor: Autor do Livro 1</p>
+                <p class="card-text">Terminei de ler em: Mês/Ano</p>
+                <p class="card-text">Nota: 10</p>
+                <!-- Adicione outros detalhes aqui -->
+                <a href="#" class="btn btn-primary">Ver Detalhes</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Segundo card -->
+    <div class="book-card">
+        <div class="card">
+            <img src="caminho_da_imagem2.jpg" class="card-img-top" alt="Capa do Livro 2">
+            <div class="card-body">
+                <h5 class="card-title">Nome do Livro 2</h5>
+                <p class="card-text">Autor: Autor do Livro 2</p>
+                <p class="card-text">Terminei de ler em: Mês/Ano</p>
+                <p class="card-text">Nota: 9</p>
+                <!-- Adicione outros detalhes aqui -->
+                <a href="#" class="btn btn-primary">Ver Detalhes</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Terceiro card -->
+    <div class="book-card">
+        <div class="card">
+            <img src="caminho_da_imagem3.jpg" class="card-img-top" alt="Capa do Livro 3">
+            <div class="card-body">
+                <h5 class="card-title">Nome do Livro 3</h5>
+                <p class="card-text">Autor: Autor do Livro 3</p>
+                <p class="card-text">Terminei de ler em: Mês/Ano</p>
+                <p class="card-text">Nota: 8</p>
+                <!-- Adicione outros detalhes aqui -->
+                <a href="#" class="btn btn-primary">Ver Detalhes</a>
+            </div>
+        </div>
+    </div>
+      <div class="book-card">
+        <div class="card">
+            <img src="caminho_da_imagem3.jpg" class="card-img-top" alt="Capa do Livro 3">
+            <div class="card-body">
+                <h5 class="card-title">Nome do Livro 3</h5>
+                <p class="card-text">Autor: Autor do Livro 3</p>
+                <p class="card-text">Terminei de ler em: Mês/Ano</p>
+                <p class="card-text">Nota: 8</p>
+                <!-- Adicione outros detalhes aqui -->
+                <a href="#" class="btn btn-primary">Ver Detalhes</a>
+            </div>
+        </div>
+    </div>
+      <div class="book-card">
+        <div class="card">
+            <img src="caminho_da_imagem3.jpg" class="card-img-top" alt="Capa do Livro 3">
+            <div class="card-body">
+                <h5 class="card-title">Nome do Livro 3</h5>
+                <p class="card-text">Autor: Autor do Livro 3</p>
+                <p class="card-text">Terminei de ler em: Mês/Ano</p>
+                <p class="card-text">Nota: 8</p>
+                <!-- Adicione outros detalhes aqui -->
+                <a href="#" class="btn btn-primary">Ver Detalhes</a>
+            </div>
+        </div>
+    </div>
+</div>
+                
+                           <%--  <c:forEach items="${livros}" var="dado">
             <div class="table-responsive">
                     <table id="listaPacientes" class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                         <thead>
@@ -247,10 +313,10 @@
                                 </tr>
                         </tbody>
                     </table>
-                </div>
+               
                             </c:forEach>
-            </div>
-        </div>
+ --%>        
+
     </div>
 </div>
 
