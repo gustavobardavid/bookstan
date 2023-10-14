@@ -29,7 +29,22 @@
   <link rel="stylesheet" href="css/print-dashboard.css">
   <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
 </head>
+<style>
+/* Estilo do container que exibe informações do livro */
+.book-details-container {
+    background-color: #f8f8f8;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    text-align: center;
+}
 
+/* Estilo para elementos de informações do livro (título, autor, descrição) */
+.book-info {
+    font-size: 18px;
+    margin: 10px 0;
+}
+</style>
 <body id="page-top">
 
   <!-- Page Wrapper -->
@@ -119,21 +134,24 @@
         <!-- End of Topbar -->
 
         <!-- Begin Page Content -->
+           
         <!-- Conteúdo para exibir informações do livro -->
-    <div class="container mt-5">
+    <div class="container mt-5 book-details-container">
+        
         <h1>Detalhes do Livro</h1>
         
         <img id="bookCover" src="" alt="Capa do Livro">
         
+        
         <!-- Elementos para exibir informações do livro -->
         <h2>Título:</h2>
-        <p id="bookTitle"></p>
+        <p id="bookTitle" class="book-info"></p>
         
         <h2>Autor:</h2>
-        <p id="bookAuthor"></p>
+        <p id="bookAuthor" class="book-info"></p>
         
         <h2>Descrição:</h2>
-        <p id="bookDescription"></p>
+        <p id="bookDescription" class="book-info"></p>
     </div>
                 <!-- /.container-fluid -->
 

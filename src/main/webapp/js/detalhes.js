@@ -1,6 +1,10 @@
 window.addEventListener('load', getBookDetails);
 
         function getBookDetails() {
+            // Mostrar o indicador de carregamento
+    const loadingIndicator = document.querySelector('#loadingIndicator');
+    loadingIndicator.style.display = 'block';
+
             // Obter o nome do livro a partir dos parâmetros da URL
             const urlParams = new URLSearchParams(window.location.search);
             const bookName = urlParams.get('nomeLivro');
@@ -35,11 +39,13 @@ window.addEventListener('load', getBookDetails);
                         } else {
                             bookCoverElement.src = 'placeholder.jpg'; // Defina uma imagem padrão para o caso de a capa não estar disponível
                         }
+                        loadingIndicator.style.display = 'none';
                     } else {
                         console.error('Livro não encontrado');
                     }
                 })
                 .catch(error => {
                     console.error('Erro ao obter informações do livro:', error);
+                    loadingIndicator.style.display = 'none';
                 });
         }
