@@ -1,17 +1,14 @@
-window.addEventListener('load', searchBooks);
+window.addEventListener('load', searchBooks('john green'));
 
 const searchInput = document.querySelector('#searchInput');
 const searchButton = document.querySelector('#searchButton');
 const resultsDiv = document.querySelector('#results');
 
-searchButton.addEventListener('click', searchBooks);
-
-function searchBooks() {
-    const bookName = searchInput.value;
-
-    if (bookName === '') {
-        bookName = 'john green'
-    }
+searchButton.addEventListener('click', function () {
+    searchBooks(searchInput.value);
+});
+function searchBooks(nome) {
+    const bookName = nome;
 
     const apiUrl = `https://www.googleapis.com/books/v1/volumes?q=${bookName}`;
 
