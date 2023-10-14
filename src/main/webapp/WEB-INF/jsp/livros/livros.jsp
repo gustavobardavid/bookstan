@@ -26,7 +26,7 @@
 
   <!-- Custom styles for this page -->
   <link href="vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
-  <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+  <link rel="shortcut icon" href="book.ico" type="image/x-icon">
 </head>
 
 <style>
@@ -100,7 +100,7 @@
             </a>
             <hr class="sidebar-divider my-0">
             <li class="nav-item active">
-                <a class="nav-link" href="<c:url value="suporte"/>">
+                <a class="nav-link" href="<c:url value="descubra"/>">
                     <span>Descubra Livros novos</span>
                 </a>
             </li>

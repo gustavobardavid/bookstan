@@ -13,7 +13,7 @@
     <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
     <link href="css/sb-admin-2.css" rel="stylesheet">
     <link href="vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
-    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="book.ico" type="image/x-icon">
 </head>
 <body id="page-top">
     <div id="wrapper">
@@ -26,7 +26,7 @@
             </a>
             <hr class="sidebar-divider my-0">
             <li class="nav-item active">
-                <a class="nav-link" href="<c:url value="suporte"/>">
+                <a class="nav-link" href="<c:url value="descubra"/>">
                     <span>Descrubra Livros novos</span>
                 </a>
             </li>

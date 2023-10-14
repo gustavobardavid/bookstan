@@ -11,44 +11,120 @@
     <title>Home</title>
     <link href="https://fonts.googleapis.com/css?family=Nunito:200,300,400,600,700,800,900&display=swap" rel="stylesheet">
     <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
-    <link href="css/sb-admin-2.min.css" rel="stylesheet">
+    <link href="css/sb-admin-2.css" rel="stylesheet">
     <link href="vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
-    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="book.ico" type="image/x-icon">
 </head>
+<style>
+    #app {
+        text-align: center;
+        background-color: #f4f4f4;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        max-width: 600px;
+        margin: 0 auto;
+    }
+
+    h1 {
+        font-size: 24px;
+        margin-bottom: 10px;
+    }
+
+    input[type="text"] {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 10px;
+    }
+
+    button {
+        padding: 10px 20px;
+        background-color: #007BFF;
+        color: #fff;
+        border: none;
+        cursor: pointer;
+        margin-right: 10px;
+    }
+
+    #clearButton {
+        background-color: #dc3545;
+    }
+
+    button:hover {
+        background-color: #0056b3;
+    }
+
+    #results {
+        margin-top: 20px;
+    }
+
+    .book {
+        background-color: #fff;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        padding: 10px;
+        margin: 10px 0;
+    }
+
+    .book h2 {
+        font-size: 20px;
+    }
+
+    .book p {
+        font-size: 14px;
+    }
+
+    .book img {
+        max-width: 100px;
+    }
+</style>
+
 <body id="page-top">
     <div id="wrapper">
-        <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion no-print" id="accordionSidebar">
+    <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion no-print" id="accordionSidebar">
             <a class="sidebar-brand d-flex align-items-center justify-content-center" href="<c:url value="home"/>">
                 <div class="sidebar-brand-icon rotate-n-15">
-                    <i class="fas fa-heart"></i>
+                    <i class="fas fa-book"></i>
                 </div>
-                <div class="sidebar-brand-text mx-3">Fidelius</div>
+                <div class="sidebar-brand-text mx-3">BookStan</div>
             </a>
             <hr class="sidebar-divider my-0">
             <li class="nav-item active">
-                <a class="nav-link" href="<c:url value="suporte"/>">
-                    <span>Suporte</span>
+                <a class="nav-link" href="<c:url value="descubra"/>">
+                    <span>Descubra Livros novos</span>
                 </a>
             </li>
             <hr class="sidebar-divider">
             <div class="sidebar-heading">Menu Principal</div>
             <li class="nav-item">
-                <a class="nav-link" href="<c:url value="cadastrarPaciente"/>">
+                <a class="nav-link" href="<c:url value="cadastrarLivro"/>">
                     <i class="fas fa-plus"></i>
-                    <span>Cadastrar Novo Paciente</span>
+                    <span>Cadastrar Novo Livro</span>
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="<c:url value="pacientes"/>">
-                    <i class="fas fa-user"></i>
-                    <span>Pacientes</span>
+                <a class="nav-link" href="<c:url value="livros"/>">
+                    <i class="fas fa-book-open"></i>
+                    <span>Minha Estante</span>
                 </a>
             </li>
         </ul>
+    
         <div id="content-wrapper" class="d-flex flex-column">
             <div id="content">
+            	<!-- Search -->
                 <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
                     <ul class="navbar-nav ml-auto">
+         <form class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
+          <div class="input-group">
+            <input type="text" id="searchInput" class="form-control bg-light border-1 small" placeholder="Procurar um livro" aria-label="Search" aria-describedby="basic-addon2">
+            <div class="input-group-append">
+              <button id="searchButton" class="btn btn-primary" type="button">
+                <i class="fas fa-search fa-sm"></i>
+              </button>
+            </div>
+          </div>
+        </form> 
                        <!--  <li class="nav-item dropdown no-arrow">
                             <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <span class="mr-2 d-none d-lg-inline text-gray-600 small">Você</span>
@@ -69,46 +145,10 @@
                 </nav>
                 
                 <!-- inicio do conteudo da pagina -->
-                <form method="post" action="<c:url value='suporte/enviar'/>" class="form-inline" accept-charset="UTF-8">
-                            <!-- Inicio do Card -->
-                         
-              <div class="card shadow mb-4 card-novaaposta mx-auto">
-                
-                
-                <div class="card-body">
-
-                       		
-               <div class="card-header py-3">
-                  <h6 class="m-0 font-weight-bold text-primary text-center">Envie-nos um ticket de suporte</h6>
-                </div>
-                <div class="card-footer text-center">
-                
-                  <div class="input-group">
-                            <input name="paciente.grupoSanguineo" type="text" class="form-control" placeholder="Seu nome">
-                       		<input name="paciente.numeroTelefone" type="email" class="form-control" placeholder="Seu e-mail" required>	
-                       </div>
-                       <hr>
-                       <div class="input-group">
-                       <input name="paciente.numeroTelefone" type="text" class="form-control" placeholder="Descreva o problema que está enfrentando" required>	
-                       
-                            </div>
-                        <hr>
-                         
-                  <button type="submit" class="btn btn-primary btn-icon-split btn-lg mt-3 mb-3">
-                    
-                    <span class="icon text-white-50">
-                      <i class="fas fa-envelope"></i>
-                    </span>
-                   
-                    <span class="text">Enviar</span>
-                   
-                  </button>
+    	<div id="app">
             
-                  
-                </div>
-                </div>
-              </div>
-              </form>
+    <div id="results"></div>    
+    	</div>
                 
                 <!-- fim do conteudo da pagina -->
             </div>
@@ -148,5 +188,6 @@
     <script src="vendor/datatables/jquery.dataTables.min.js"></script>
     <script src="vendor/datatables/dataTables.bootstrap4.min.js"></script>
     <script src="js/demo/datatables-demo.js"></script>
+    <script src="js/descubra.js"></script>
 </body>
 </html>
