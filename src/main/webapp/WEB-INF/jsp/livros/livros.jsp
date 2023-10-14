@@ -222,7 +222,9 @@
                 <p class="card-text">Terminei de ler em: ${livro.terminou}</p>
                 <p class="card-text">Nota: ${livro.nota}</p>
                 <!-- Adicione outros detalhes aqui -->
-                <a href="#" class="btn btn-primary">Ver Detalhes</a>
+                <a href="<c:url value='detalhes'>
+                <c:param name='nomeLivro' value='${livro.nome}'/>
+            </c:url>" class="btn btn-primary">Ver Detalhes</a>
             </div>
         </div>
     </div>
