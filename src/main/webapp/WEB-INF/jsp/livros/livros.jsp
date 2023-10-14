@@ -30,10 +30,11 @@
 </head>
 
 <style>
+
     /* Estilo da estante */
     .bookshelf {
         display: grid;
-        grid-template-columns: repeat(3, 1fr);
+        grid-template-columns: repeat(5, 1fr);
         gap: 20px;
         background-color: #f7f7f7;
         padding: 20px;
@@ -44,9 +45,10 @@
 
     /* Estilo dos cards */
     .book-card {
-        width: 100%;
+        width: 150px;
         background-color: #fff;
         border: 1px solid #ddd;
+        border-top: 5px solid #3f87a6; /* Cor da "lombada" do livro */
         border-radius: 5px;
         padding: 15px;
         box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
@@ -71,14 +73,22 @@
         height: 150px; /* Altura da imagem do livro */
         object-fit: cover;
     }
+       #sidebarToggle {
+            
+            top: 20px;
+            left: 20px;
+            cursor: pointer;
+            color: #fff;
+        }
 </style>
+
 
 <body id="page-top">
 
 
  <!-- Page Wrapper -->
  <div id="wrapper">
-
+    
   <!-- Sidebar -->
   <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion no-print" id="accordionSidebar">
             <a class="sidebar-brand d-flex align-items-center justify-content-center" href="<c:url value="home"/>">
@@ -201,76 +211,25 @@
                 
         
         <div class="bookshelf">
-    <!-- Primeiro card -->
+        
+    <c:forEach items="${livros}" var="livro">
     <div class="book-card">
         <div class="card">
-            <img src="caminho_da_imagem1.jpg" class="card-img-top" alt="Capa do Livro 1">
             <div class="card-body">
-                <h5 class="card-title">Nome do Livro 1</h5>
-                <p class="card-text">Autor: Autor do Livro 1</p>
-                <p class="card-text">Terminei de ler em: Mês/Ano</p>
-                <p class="card-text">Nota: 10</p>
+                <h5 class="card-title">${livro.nome}</h5>
+                <p class="card-text">Autor: ${livro.autor }</p>
+                <p class="card-text">Terminei de ler em: ${livro.terminou}</p>
+                <p class="card-text">Nota: ${livro.nota}</p>
                 <!-- Adicione outros detalhes aqui -->
                 <a href="#" class="btn btn-primary">Ver Detalhes</a>
             </div>
         </div>
     </div>
 
-    <!-- Segundo card -->
-    <div class="book-card">
-        <div class="card">
-            <img src="caminho_da_imagem2.jpg" class="card-img-top" alt="Capa do Livro 2">
-            <div class="card-body">
-                <h5 class="card-title">Nome do Livro 2</h5>
-                <p class="card-text">Autor: Autor do Livro 2</p>
-                <p class="card-text">Terminei de ler em: Mês/Ano</p>
-                <p class="card-text">Nota: 9</p>
-                <!-- Adicione outros detalhes aqui -->
-                <a href="#" class="btn btn-primary">Ver Detalhes</a>
-            </div>
-        </div>
-    </div>
+    </c:forEach>
 
-    <!-- Terceiro card -->
-    <div class="book-card">
-        <div class="card">
-            <img src="caminho_da_imagem3.jpg" class="card-img-top" alt="Capa do Livro 3">
-            <div class="card-body">
-                <h5 class="card-title">Nome do Livro 3</h5>
-                <p class="card-text">Autor: Autor do Livro 3</p>
-                <p class="card-text">Terminei de ler em: Mês/Ano</p>
-                <p class="card-text">Nota: 8</p>
-                <!-- Adicione outros detalhes aqui -->
-                <a href="#" class="btn btn-primary">Ver Detalhes</a>
-            </div>
-        </div>
-    </div>
-      <div class="book-card">
-        <div class="card">
-            <img src="caminho_da_imagem3.jpg" class="card-img-top" alt="Capa do Livro 3">
-            <div class="card-body">
-                <h5 class="card-title">Nome do Livro 3</h5>
-                <p class="card-text">Autor: Autor do Livro 3</p>
-                <p class="card-text">Terminei de ler em: Mês/Ano</p>
-                <p class="card-text">Nota: 8</p>
-                <!-- Adicione outros detalhes aqui -->
-                <a href="#" class="btn btn-primary">Ver Detalhes</a>
-            </div>
-        </div>
-    </div>
-      <div class="book-card">
-        <div class="card">
-            <img src="caminho_da_imagem3.jpg" class="card-img-top" alt="Capa do Livro 3">
-            <div class="card-body">
-                <h5 class="card-title">Nome do Livro 3</h5>
-                <p class="card-text">Autor: Autor do Livro 3</p>
-                <p class="card-text">Terminei de ler em: Mês/Ano</p>
-                <p class="card-text">Nota: 8</p>
-                <!-- Adicione outros detalhes aqui -->
-                <a href="#" class="btn btn-primary">Ver Detalhes</a>
-            </div>
-        </div>
-    </div>
+    
+    
 </div>
                 
                            <%--  <c:forEach items="${livros}" var="dado">
@@ -372,7 +331,7 @@
   <!-- Bootstrap core JavaScript-->
   <script src="vendor/jquery/jquery.min.js"></script>
   <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-
+  
   <!-- Core plugin JavaScript-->
   <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
 

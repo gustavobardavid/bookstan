@@ -160,8 +160,8 @@
                 <div class="card-footer text-center">
                 
                   <div class="input-group">
-                            <input name="paciente.nome" type="text" class="form-control" placeholder="Nome do Livro" required>	
-                            <input name="paciente.comorbidade" type="text" class="form-control" placeholder="Autor" required>
+                            <input name="livro.nome" type="text" class="form-control" placeholder="Nome do Livro" required>	
+                            <input name="livro.autor" type="text" class="form-control" placeholder="Autor" required>
                        </div>
                        <hr>
                      
@@ -172,8 +172,8 @@
                 <hr>
                   <div class="input-group">
                        
-                            <input name="paciente.observacoesMedicas" type="text" class="form-control" placeholder="Começou quando?">	
-                            <input name="paciente.historicoMedico" type="text" class="form-control" placeholder="Terminou quando?">
+                            <input name="livro.comecou" type="text" class="form-control" placeholder="Começou quando?">	
+                            <input name="livro.terminou" type="text" class="form-control" placeholder="Terminou quando?">
                            
                             </div>
                        <hr>
@@ -198,7 +198,7 @@
                       <td> 
                       <div class="input-group">
                       
-                            <input name="paciente.objetivo" type="text" class="form-control" placeholder="Descrição">
+                            <input name="livro.descricao" type="text" class="form-control" placeholder="Descrição">
                          
                        </div>
                        </td>
@@ -206,7 +206,7 @@
                        <td>
                         <div class="input-group">
                             	
-                            <input name="paciente.preocupa" type="text" class="form-control" placeholder="Dê a sua nota">
+                            <input name="livro.nota" type="text" class="form-control" placeholder="Dê a sua nota">
                         	
                         	</div>
                     		
