@@ -16,7 +16,7 @@
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>Área de Cadastro de Novo Paciente</title>
+  <title>Área de Cadastro de Novo Livro</title>
 
   <!-- Custom fonts for this template-->
   <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -37,55 +37,35 @@
         <!-- Page Wrapper -->
   <div id="wrapper">
 
-    <!-- Sidebar -->
     <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion no-print" id="accordionSidebar">
-
-      <!-- Sidebar - Brand -->
-      <a class="sidebar-brand d-flex align-items-center justify-content-center" href="<c:url value="home"/>">
-        <div class="sidebar-brand-icon rotate-n-15">
-          <i class="fas fa-heart"></i>
-
-        </div>
-        <div class="sidebar-brand-text mx-3">Fidelius</div>
-      </a>
-
-      <!-- Divider -->
-      <hr class="sidebar-divider my-0">
-
-      <!-- Nav Item - Suporte -->
-      <li class="nav-item active">
-        <a class="nav-link" href="<c:url value="suporte"/>">
-    
-          <span>Suporte</span></a>
-      </li>
-
-      <!-- Divider -->
-      <hr class="sidebar-divider">
-
-      <!-- Heading -->
-      <div class="sidebar-heading">
-        Menu Principal
-      </div>
-
-      <!-- Nav Item - Charts -->
-       <li class="nav-item">
-        <a class="nav-link" href="<c:url value="cadastrarPaciente"/>">
-          
-		<i class="fas fa-plus"></i>
+            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="<c:url value="home"/>">
+                <div class="sidebar-brand-icon rotate-n-15">
+                    <i class="fas fa-book"></i>
+                </div>
+                <div class="sidebar-brand-text mx-3">BookStan</div>
+            </a>
+            <hr class="sidebar-divider my-0">
+            <li class="nav-item active">
+                <a class="nav-link" href="<c:url value="suporte"/>">
+                    <span>Descubra Livros novos</span>
+                </a>
+            </li>
+            <hr class="sidebar-divider">
+            <div class="sidebar-heading">Menu Principal</div>
+            <li class="nav-item">
+                <a class="nav-link" href="<c:url value="cadastrarLivro"/>">
+                    <i class="fas fa-plus"></i>
+                    <span>Cadastrar Novo Livro</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="<c:url value="livros"/>">
+                    <i class="fas fa-book-open"></i>
+                    <span>Minha Estante</span>
+                </a>
+            </li>
+        </ul>
         
-          <span>Cadastrar Novo Paciente</span></a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="<c:url value="pacientes"/>">
-          <i class="fas fa-user"></i>
-
-          <span>Pacientes</span></a>
-      </li>
-
-     
-    </ul>
-    <!-- End of Sidebar -->
-
     <!-- Content Wrapper -->
     <div id="content-wrapper" class="d-flex flex-column">
 
@@ -148,7 +128,7 @@
                          
               <div class="card shadow mb-4 card-novaaposta mx-auto">
                 <div class="card-header py-3">
-                  <h6 class="m-0 font-weight-bold text-primary text-center">Cadastre um novo Paciente</h6>
+                  <h6 class="m-0 font-weight-bold text-primary text-center">Leu um livro novo? Coloque na estante</h6>
                 </div>
                	
                			<c:if test="${not empty errors}">
@@ -165,7 +145,7 @@
               
               <!-- / Fim do Card-->
               
-                <form method="post" action="<c:url value='cadastrarPaciente/salvarpaciente'/>" class="form-inline" accept-charset="UTF-8">
+                <form method="post" action="<c:url value='cadastrarLivro/salvarlivro'/>" class="form-inline" accept-charset="UTF-8">
                             <!-- Inicio do Card -->
                          
               <div class="card shadow mb-4 card-novaaposta mx-auto">
@@ -175,36 +155,39 @@
 
                        		
                <div class="card-header py-3">
-                  <h6 class="m-0 font-weight-bold text-primary text-center">Dados do Paciente</h6>
+                  <h6 class="m-0 font-weight-bold text-primary text-center">Sobre o livro</h6>
                 </div>
                 <div class="card-footer text-center">
                 
                   <div class="input-group">
-                            <input name="paciente.nome" type="text" class="form-control" placeholder="*Nome" required>	
-                            <input name="paciente.comorbidade" type="text" class="form-control" placeholder="*Comorbidade" required>
-                            <input name="paciente.grupoSanguineo" type="text" class="form-control" placeholder="Grupo Sanguíneo">
+                            <input name="paciente.nome" type="text" class="form-control" placeholder="Nome do Livro" required>	
+                            <input name="paciente.comorbidade" type="text" class="form-control" placeholder="Autor" required>
                        </div>
                        <hr>
-                       <div class="input-group">
-                       		<input name="paciente.dataNascimento" type="text" class="form-control" placeholder="Data de Nascimento">
-                            
-                            <input name="paciente.endereco" type="text" class="form-control" placeholder="Endereço">
-                            <input name="paciente.numeroTelefone" type="text" class="form-control" placeholder="*Telefone" required>	
-                            </div>
-                        <hr>
-                   <div class="card-header py-3">
-                  <h6 class="m-0 font-weight-bold text-primary text-center">Plano de Atuação</h6>
-                </div>
+                     
                    
+                  <div class="card-header py-3">
+                  <h6 class="m-0 font-weight-bold text-primary text-center">Sobre a leitura</h6>
+                </div>
+                <hr>
+                  <div class="input-group">
+                       
+                            <input name="paciente.observacoesMedicas" type="text" class="form-control" placeholder="Começou quando?">	
+                            <input name="paciente.historicoMedico" type="text" class="form-control" placeholder="Terminou quando?">
+                           
+                            </div>
+                       <hr>
+                   <div class="card-header py-3">
+                  <h6 class="m-0 font-weight-bold text-primary text-center">Sobre a sua experiência</h6>
+                </div>
                            <div class="table-responsive">
                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                   <thead class="thead-dark">
                     <tr>
                     
-                      <th>Objetivos</th>
-                      <th>Prioridade</th>
-                      <th>Preocupa?</th>
-                      <th>Medicamento</th>
+                      <th>O que você achou?</th>
+                      <th>Uma nota</th>
+                     
                     
                     </tr>
                   </thead>
@@ -219,63 +202,36 @@
                          
                        </div>
                        </td>
-                       
-                      <td>
-                      <div class="input-group">
-                      
-                            <input name="paciente.prioridade" type="Text" class="form-control" placeholder="Alta ou Baixa">
-                         
-                       </div>
-                       </td>
-                       
+                   
                        <td>
                         <div class="input-group">
                             	
-                            <input name="paciente.preocupa" type="text" class="form-control" placeholder="Preocupa?">
+                            <input name="paciente.preocupa" type="text" class="form-control" placeholder="Dê a sua nota">
                         	
                         	</div>
-                    		<div class="text-xs font-weight-bold text-success text-uppercase mb-1">Preocupa: Pouco(P); Bastante(B)</div>
-                     
+                    		
                        </td>
                        
-                        <td>
-                      <div class="input-group">
-                      
-                          <input name="paciente.medicamento" type="text" class="form-control" placeholder="Ex: Aerodini">
-                         
-                       </div>
-                       </td>
+                    
                                 
                   </tr>
                   </tbody>
                 </table>
-                
-                  <div class="card-header py-3">
-                  <h6 class="m-0 font-weight-bold text-primary text-center">Observações Médicas</h6>
-                </div>
-                <hr>
-                  <div class="input-group">
-                       
-                            <input name="paciente.observacoesMedicas" type="text" class="form-control" placeholder="Observações">	
-                            <input name="paciente.historicoMedico" type="text" class="form-control" placeholder="Histórico Médico">
-                            <input name="paciente.alergias" type="text" class="form-control" placeholder="Alergias">
-                            </div>
               </div>
-                       <hr>
+                
                          
                   <button type="submit" class="btn btn-primary btn-icon-split btn-lg mt-3 mb-3">
                     
                     <span class="icon text-white-50">
-                      <i class="fas fa-check"></i>
+                      <i class="fas fa-book"></i>
                     </span>
                    
-                    <span class="text">Salvar</span>
+                    <span class="text">Colocar</span>
                    
                   </button>
             
                   
                 </div>
-              <span class="group-text">O símbolo * sinaliza um campo obrigatório</span>
                 </div>
               </div>
               </form>

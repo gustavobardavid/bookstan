@@ -27,7 +27,7 @@
             <hr class="sidebar-divider my-0">
             <li class="nav-item active">
                 <a class="nav-link" href="<c:url value="suporte"/>">
-                    <span>Catálogo</span>
+                    <span>Descrubra Livros novos</span>
                 </a>
             </li>
             <hr class="sidebar-divider">
@@ -41,7 +41,7 @@
             <li class="nav-item">
                 <a class="nav-link" href="<c:url value="livros"/>">
                     <i class="fas fa-book-open"></i>
-                    <span>Livros</span>
+                    <span>Minha Estante</span>
                 </a>
             </li>
         </ul>

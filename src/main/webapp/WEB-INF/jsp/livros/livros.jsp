@@ -15,7 +15,7 @@
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>Pacientes</title>
+  <title>Minha Estante</title>
 
   <!-- Custom fonts for this template -->
   <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -29,58 +29,50 @@
   <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
 </head>
 
+<style>
+    .bookshelf {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr); /* Define 3 colunas de largura igual */
+        gap: 20px; /* Define o espaçamento entre as colunas */
+    }
+
+    /* Estilos adicionais da estante de livros, se necessário */
+</style>
 <body id="page-top">
+
 
  <!-- Page Wrapper -->
  <div id="wrapper">
 
   <!-- Sidebar -->
   <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion no-print" id="accordionSidebar">
-
-    <!-- Sidebar - Brand -->
-    <a class="sidebar-brand d-flex align-items-center justify-content-center" href="<c:url value="home"/>">
-      <div class="sidebar-brand-icon rotate-n-15">
-        <i class="fas fa-heart"></i>
-
-      </div>
-      <div class="sidebar-brand-text mx-3">Fidelius</div>
-    </a>
-
-    <!-- Divider -->
-    <hr class="sidebar-divider my-0">
-
-    <!-- Nav Item - Dashboard -->
-    <li class="nav-item active">
-      <a class="nav-link" href="<c:url value="suporte"/>">
-  
-        <span>Suporte</span></a>
-    </li>
-
-    <!-- Divider -->
-    <hr class="sidebar-divider">
-
-    <!-- Heading -->
-    <div class="sidebar-heading">
-      Menu Principal
-    </div>
-
-    <!-- Nav Item - Charts -->
-    <li class="nav-item">
-        <a class="nav-link" href="<c:url value="cadastrarPaciente"/>">
-          
-		<i class="fas fa-plus"></i>
-        
-          <span>Cadastrar Novo Paciente</span></a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="<c:url value="pacientes"/>">
-          <i class="fas fa-user"></i>
-
-          <span>Pacientes</span></a>
-      </li>
-
-
-  </ul>
+            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="<c:url value="home"/>">
+                <div class="sidebar-brand-icon rotate-n-15">
+                    <i class="fas fa-book"></i>
+                </div>
+                <div class="sidebar-brand-text mx-3">BookStan</div>
+            </a>
+            <hr class="sidebar-divider my-0">
+            <li class="nav-item active">
+                <a class="nav-link" href="<c:url value="suporte"/>">
+                    <span>Descubra Livros novos</span>
+                </a>
+            </li>
+            <hr class="sidebar-divider">
+            <div class="sidebar-heading">Menu Principal</div>
+            <li class="nav-item">
+                <a class="nav-link" href="<c:url value="cadastrarLivro"/>">
+                    <i class="fas fa-plus"></i>
+                    <span>Cadastrar Novo Livro</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="<c:url value="livros"/>">
+                    <i class="fas fa-book-open"></i>
+                    <span>Minha Estante</span>
+                </a>
+            </li>
+        </ul>
   <!-- End of Sidebar -->
 
   <!-- Content Wrapper -->
@@ -154,7 +146,7 @@
           <!-- Tabelas dos pacientes -->
           <div class="card shadow mb-4">
             <div class="card-header py-3">
-              <h6 class="m-0 font-weight-bold text-primary">Pacientes Acompanhados</h6>
+              <h6 class="m-0 font-weight-bold text-primary">Sua estante</h6>
             </div>
             
         
@@ -171,80 +163,97 @@
           </div>
         </form> -->
         
-              <div class="table-responsive">
-                <table id="listaPacientes" class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                  <thead>
-                    <tr>
-                      <th>Código Fidelius</th>
-                      <th>Nome</th>
-                      <th>Comorbidade</th>
-                      <th>Data de Nascimento</th>
-                      <th>Prioridade</th>
-                      <th>Alcançado</th>
-                      <th>Ações</th>
-                     
-                    </tr>
-                  </thead>
-                  <!-- <tfoot>
-                    <tr>
-                      <th>Id Fidelius</th>
-                      <th>Nome</th>
-                      <th>Comorbidade</th>
-                      <th>Data de Nascimento</th>
-                      <th>Prioridade</th>
-                      
-                      <th>Alcançado</th>
-                      <th>Ações</th>
-                      
-                    </tr>
-                  </tfoot> -->
-                  <tbody>
-                  
-                   <%--  <tr>
-                      <td>1</td>
-                      <td>Gustavo</td>
-                      <td>Asma</td>
-                      <td>19</td>
-                     
-                      <td>
-                      <a href="<c:url value="situacao"/>"><button class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-eye"></i></button></a>
-                      <a href="<c:url value="editarPaciente"/>"><button class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-edit"></i></button></a>
-                      </td> 
-                    </tr> --%>
-                    
-                    <c:forEach items="${pacientes}" var="dado">
-    					<tr>
-        					<td>${dado.getYearMonth()}00${dado.id}</td>
-        					<td>${dado.nome}</td>
-        					<td>${dado.comorbidade}</td>
-        					<td>${dado.dataNascimento}</td>
-        					<td>${dado.prioridade}</td>
-        					<td>${dado.alcançado}</td>
-        					
-        					 <td>
-                      
-                      <a href="<c:url value='situacao'>
-                <c:param name='id' value='${dado.id}'/>
-            </c:url>">
-            <button class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-eye"></i>
-            </button>
-            </a>
-                  
-                      <a href="<c:url value='pacientes/deletarpaciente'>
-                <c:param name='id' value='${dado.id}'/>
-            </c:url>">
-                      	<button class="d-none d-sm-inline-block btn btn-sm btn-danger shadow-sm"><i class="fas fa-trash"></i>
-                     	</button>
-                      </a>
-                      
-                      </td> 
-        					<!-- Outras colunas, se aplicável -->
-    					</tr>
-					</c:forEach>
-                            
-                  </tbody>
-                </table>
-              </div>
+                <div class="bookshelf">
+        <div class="container-fluid">
+    <div class="row">
+        <div class="col-md-12">
+        <div class="table-responsive">
+                    <table id="listaPacientes" class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                        <thead>
+                            <tr>
+                                <th>Nome</th>
+                                <th>Autor</th>
+                                <th>Terminei em</th>
+                                <th>Nota</th>
+                                <th>Ações</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        
+                                <tr>
+                                    <td>Quem é você, Alasca?</td>
+                                    <td>John Green</td>
+                                    <td>Agosto</td>
+                                    <td>10</td>
+                                    <td>
+                                        <a href="<c:url value='situacao'>
+                                            <c:param name='id' value='${dado.id}'/>
+                                        </c:url>">
+                                            <button class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm">
+                                                <i class="fas fa-eye"></i>
+                                            </button>
+                                        </a>
+                                        <a href="<c:url value='pacientes/deletarpaciente'>
+                                            <c:param name='id' value='${dado.id}'/>
+                                        </c:url>">
+                                            <button class="d-none d-sm-inline-block btn btn-sm btn-danger shadow-sm">
+                                                <i class="fas fa-trash"></i>
+                                            </button>
+                                        </a>
+                                    </td>
+                                    <!-- Outras colunas, se aplicável -->
+                                </tr>
+                        </tbody>
+                    </table>
+                </div>
+      
+                            <c:forEach items="${livros}" var="dado">
+            <div class="table-responsive">
+                    <table id="listaPacientes" class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                        <thead>
+                            <tr>
+                                <th>Nome</th>
+                                <th>Autor</th>
+                                <th>Terminei de ler em</th>
+                                <th>Nota</th>
+                                <th>Ações</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        
+                                <tr>
+                                    <td>${dado.getYearMonth()}00${dado.id}</td>
+                                    <td>${dado.nome}</td>
+                                    <td>${dado.comorbidade}</td>
+                                    <td>${dado.dataNascimento}</td>
+                                    <td>${dado.prioridade}</td>
+                                    <td>
+                                        <a href="<c:url value='situacao'>
+                                            <c:param name='id' value='${dado.id}'/>
+                                        </c:url>">
+                                            <button class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm">
+                                                <i class="fas fa-eye"></i>
+                                            </button>
+                                        </a>
+                                        <a href="<c:url value='pacientes/deletarpaciente'>
+                                            <c:param name='id' value='${dado.id}'/>
+                                        </c:url>">
+                                            <button class="d-none d-sm-inline-block btn btn-sm btn-danger shadow-sm">
+                                                <i class="fas fa-trash"></i>
+                                            </button>
+                                        </a>
+                                    </td>
+                                    <!-- Outras colunas, se aplicável -->
+                                </tr>
+                        </tbody>
+                    </table>
+                </div>
+                            </c:forEach>
+            </div>
+        </div>
+    </div>
+</div>
+
             </div>
           </div>
 
