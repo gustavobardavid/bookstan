@@ -22,7 +22,7 @@
   <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
 
   <!-- Custom styles for this template -->
-  <link href="css/sb-admin-2.min.css" rel="stylesheet">
+  <link href="css/sb-admin-2.css" rel="stylesheet">
 
   <!-- Custom styles for this page -->
   <link href="vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
@@ -59,12 +59,13 @@
     }
 
     .book-card h5 {
-        font-size: 1rem;
+        font-size: 1.2rem;
         margin: 0;
+        padding: 5px;
     }
 
     .book-card p {
-        font-size: 0.75rem;
+        font-size: 0.85rem;
         margin: 0;
     }
 
