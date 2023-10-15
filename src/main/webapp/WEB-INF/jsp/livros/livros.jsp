@@ -34,7 +34,7 @@
     /* Estilo da estante */
     .bookshelf {
         display: grid;
-        grid-template-columns: repeat(5, 1fr);
+        grid-template-columns: repeat(7, 1fr);
         gap: 20px;
         background-color: #f7f7f7;
         padding: 20px;
@@ -235,6 +235,9 @@
     </div>
 
     </c:forEach>
+            <%-- <a href="<c:url value='detalhes'>
+                <c:param name='nomeLivro' value='${livro.nome}'/>
+            </c:url>" class="btn btn-danger">Excluir</a> --%>
 
 </div>
                 
