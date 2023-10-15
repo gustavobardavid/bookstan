@@ -118,8 +118,13 @@
                     <span>Minha Estante</span>
                 </a>
             </li>
-        </ul>
-  <!-- End of Sidebar -->
+            <li class="nav-item">
+                <a class="nav-link" href="<c:url value="bookmarks"/>">
+                    <i class="fas fa-bookmark"></i>
+                    <span>Bookmarks</span>
+                </a>
+            </li>
+        </ul>  <!-- End of Sidebar -->
 
   <!-- Content Wrapper -->
   <div id="content-wrapper" class="d-flex flex-column">

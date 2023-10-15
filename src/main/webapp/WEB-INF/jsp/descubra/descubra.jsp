@@ -81,7 +81,7 @@
 
 <body id="page-top">
     <div id="wrapper">
-    <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion no-print" id="accordionSidebar">
+<ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion no-print" id="accordionSidebar">
             <a class="sidebar-brand d-flex align-items-center justify-content-center" href="<c:url value="home"/>">
                 <div class="sidebar-brand-icon rotate-n-15">
                     <i class="fas fa-book"></i>
@@ -108,8 +108,13 @@
                     <span>Minha Estante</span>
                 </a>
             </li>
+            <li class="nav-item">
+                <a class="nav-link" href="<c:url value="bookmarks"/>">
+                    <i class="fas fa-bookmark"></i>
+                    <span>Bookmarks</span>
+                </a>
+            </li>
         </ul>
-    
         <div id="content-wrapper" class="d-flex flex-column">
             <div id="content">
             	<!-- Search -->
